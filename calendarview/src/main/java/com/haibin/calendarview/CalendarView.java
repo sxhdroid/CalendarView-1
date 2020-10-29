@@ -18,6 +18,7 @@ package com.haibin.calendarview;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -26,16 +27,16 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.viewpager.widget.ViewPager;
-
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * 日历布局
@@ -1802,6 +1803,8 @@ public class CalendarView extends FrameLayout {
          * @param isClick  isClick
          */
         void onCalendarSelect(Calendar calendar, boolean isClick);
+
+        void onCalendarSelect(Calendar calendar, @Nullable RectF rectF, boolean isClick);
     }
 
     public interface OnCalendarLongClickListener {

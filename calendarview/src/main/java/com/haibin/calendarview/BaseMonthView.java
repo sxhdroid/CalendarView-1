@@ -17,6 +17,7 @@ package com.haibin.calendarview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.RectF;
 
 /**
  * 月视图基础控件,可自由继承实现
@@ -52,6 +53,8 @@ public abstract class BaseMonthView extends BaseView {
      * 下个月偏移的数量
      */
     protected int mNextDiff;
+
+    private final RectF rectF = new RectF();
 
     public BaseMonthView(Context context) {
         super(context);
@@ -123,6 +126,29 @@ public abstract class BaseMonthView extends BaseView {
         if (position >= 0 && position < mItems.size())
             return mItems.get(position);
         return null;
+    }
+
+    /**
+     * 获取当前点击日历的矩形区域
+     *
+     */
+    protected RectF getCurrentRectF() {
+        if (mItemWidth == 0 || mItemHeight == 0) {
+            return null;
+        }
+        int[] location = new int[2];
+        getLocationOnScreen(location);
+        int indexX = (int) (mX - mDelegate.getCalendarPadding()) / mItemWidth;
+        if (indexX >= 7) {
+            indexX = 6;
+        }
+        int indexY = (int) mY / mItemHeight;
+        rectF.left = indexX * mItemWidth - mDelegate.getCalendarPadding() + location[0];
+        rectF.right = rectF.left + mItemWidth;
+        rectF.top = indexY * mItemHeight + location[1];
+        rectF.bottom = rectF.top + mItemHeight;
+
+        return rectF;
     }
 
     /**

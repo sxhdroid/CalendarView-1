@@ -3,8 +3,7 @@ package com.haibin.calendarviewproject.meizu;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
+import android.graphics.RectF;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,6 +20,9 @@ import com.haibin.calendarviewproject.group.GroupRecyclerView;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class MeiZuActivity extends BaseActivity implements
         CalendarView.OnCalendarSelectListener,
@@ -154,6 +156,11 @@ public class MeiZuActivity extends BaseActivity implements
     @SuppressLint("SetTextI18n")
     @Override
     public void onCalendarSelect(Calendar calendar, boolean isClick) {
+
+    }
+
+    @Override
+    public void onCalendarSelect(Calendar calendar, @Nullable RectF rectF, boolean isClick) {
         mTextLunar.setVisibility(View.VISIBLE);
         mTextYear.setVisibility(View.VISIBLE);
         mTextMonthDay.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");

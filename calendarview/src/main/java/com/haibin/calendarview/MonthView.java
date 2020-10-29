@@ -131,6 +131,7 @@ public abstract class MonthView extends BaseMonthView {
             int cur = mMonthViewPager.getCurrentItem();
             int position = mCurrentItem < 7 ? cur - 1 : cur + 1;
             mMonthViewPager.setCurrentItem(position);
+            return;
         }
 
         if (mDelegate.mInnerListener != null) {
@@ -143,11 +144,10 @@ public abstract class MonthView extends BaseMonthView {
             } else {
                 mParentLayout.updateSelectWeek(CalendarUtil.getWeekFromDayInMonth(calendar, mDelegate.getWeekStart()));
             }
-
         }
 
         if (mDelegate.mCalendarSelectListener != null) {
-            mDelegate.mCalendarSelectListener.onCalendarSelect(calendar, true);
+            mDelegate.mCalendarSelectListener.onCalendarSelect(calendar, getCurrentRectF(), true);
         }
     }
 

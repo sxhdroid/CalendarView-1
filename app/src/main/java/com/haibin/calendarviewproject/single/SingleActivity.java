@@ -3,7 +3,7 @@ package com.haibin.calendarviewproject.single;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -25,6 +25,9 @@ import com.haibin.calendarviewproject.simple.SimpleActivity;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class SingleActivity extends BaseActivity implements
         CalendarView.OnCalendarSelectListener,
@@ -183,6 +186,11 @@ public class SingleActivity extends BaseActivity implements
     @SuppressLint("SetTextI18n")
     @Override
     public void onCalendarSelect(Calendar calendar, boolean isClick) {
+
+    }
+
+    @Override
+    public void onCalendarSelect(Calendar calendar, @Nullable RectF rectF, boolean isClick) {
         mTextLunar.setVisibility(View.VISIBLE);
         mTextYear.setVisibility(View.VISIBLE);
         mTextMonthDay.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");

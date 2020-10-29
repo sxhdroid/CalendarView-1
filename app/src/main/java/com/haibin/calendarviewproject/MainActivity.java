@@ -2,9 +2,7 @@ package com.haibin.calendarviewproject;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-
-import androidx.appcompat.app.AlertDialog;
-
+import android.graphics.RectF;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +33,9 @@ import com.haibin.calendarviewproject.solay.SolarActivity;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 public class MainActivity extends BaseActivity implements
         CalendarView.OnCalendarSelectListener,
@@ -392,6 +393,11 @@ public class MainActivity extends BaseActivity implements
                 "  --  " + isClick + "  --   " + calendar.getScheme());
         Log.e("onDateSelected", "  " + mCalendarView.getSelectedCalendar().getScheme() +
                 "  --  " + mCalendarView.getSelectedCalendar().isCurrentDay());
+        Log.e("干支年纪 ： ", " -- " + TrunkBranchAnnals.getTrunkBranchYear(calendar.getLunarCalendar().getYear()));
+    }
+
+    @Override
+    public void onCalendarSelect(Calendar calendar, @Nullable RectF rectF, boolean isClick) {
         Log.e("干支年纪 ： ", " -- " + TrunkBranchAnnals.getTrunkBranchYear(calendar.getLunarCalendar().getYear()));
     }
 

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CalendarView-1.iml" filepath="$PROJECT_DIR$/.idea/modules/CalendarView-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CalendarView-1.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CalendarView-1.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/calendarview/CalendarView-1.calendarview.iml" filepath="$PROJECT_DIR$/.idea/modules/calendarview/CalendarView-1.calendarview.iml" />
       <module fileurl="file://$PROJECT_DIR$/CalendarViewProject.iml" filepath="$PROJECT_DIR$/CalendarViewProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/calendarview/calendarview.iml" filepath="$PROJECT_DIR$/calendarview/calendarview.iml" />

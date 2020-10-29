@@ -3,6 +3,7 @@ package com.haibin.calendarviewproject.full;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -18,6 +19,8 @@ import com.haibin.calendarviewproject.simple.SimpleActivity;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.Nullable;
 
 /**
  * 全屏日历,因为月份大小不同的关系，需要 app:month_view_show_mode="mode_all"，
@@ -155,6 +158,12 @@ public class FullActivity extends BaseActivity implements
     @SuppressLint("SetTextI18n")
     @Override
     public void onCalendarSelect(Calendar calendar, boolean isClick) {
+
+    }
+
+    @Override
+    public void onCalendarSelect(Calendar calendar, @Nullable RectF rectF, boolean isClick) {
+        Log.e("===", "=====rectF==" + rectF);
         mTextLunar.setVisibility(View.VISIBLE);
         mTextYear.setVisibility(View.VISIBLE);
         mTextMonthDay.setText(calendar.getMonth() + "月" + calendar.getDay() + "日");

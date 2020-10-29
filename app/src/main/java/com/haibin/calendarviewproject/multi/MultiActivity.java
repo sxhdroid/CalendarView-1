@@ -3,7 +3,7 @@ package com.haibin.calendarviewproject.multi;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -22,6 +22,9 @@ import com.haibin.calendarviewproject.group.GroupRecyclerView;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class MultiActivity extends BaseActivity implements
         CalendarView.OnCalendarMultiSelectListener,
@@ -238,6 +241,11 @@ public class MultiActivity extends BaseActivity implements
 
     @Override
     public void onCalendarSelect(Calendar calendar, boolean isClick) {
+
+    }
+
+    @Override
+    public void onCalendarSelect(Calendar calendar, @Nullable RectF rectF, boolean isClick) {
         Log.e("onDateSelected", "  -- " + calendar.getYear() +
                 "  --  " + calendar.getMonth() +
                 "  -- " + calendar.getDay() +
